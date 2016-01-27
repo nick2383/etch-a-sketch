@@ -8,11 +8,11 @@ $(document).ready(function(){
 	}
 	//change background colour of squares when mouse hovers over
 	$(".square").hover(function(){
-		$(this).addClass("hovered");
+		$(this).css("background-colour", "red");
 	});
 });
 
-function reset(){
+function reset(val){
 	//prompt user for grid size
 	do{size = parseInt(prompt("Please enter from 1 to 64: "));
 	}while(isNaN(size) || size<1 || size >64);
@@ -26,10 +26,27 @@ function reset(){
 		$("#container").append("<div class='new_row'></div>");
 	}
 	//change square size
-	$('.square').css('width',squareSize);
-	$('.square').css('height',squareSize);
-	//change background colour of squares when mouse hovers over
-	$(".square").hover(function(){
-		$(this).addClass("hovered");
-	});
+	$(".square").css("width",squareSize);
+	$(".square").css("height",squareSize);
+	
+	//set grid colouring scheme
+	switch(val){
+		//normal red on black
+		case 1: $(".square").hover(function(){
+					$(this).css("background-colour", "red");
+				});
+				break;
+		//fade black to white
+		case 2: $(".square").hover(function(){
+					$(this).css("opacity", "-=0.1");
+				});
+				break;
+		//random colour
+		case 3: $(".square").hover(function(){
+					var hue = 'rgb(' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ',' + (Math.floor(Math.random() * 256)) + ')';
+					$(this).css("background-color", hue);
+				});
+				break;
+		default: break;
+	}
 }
