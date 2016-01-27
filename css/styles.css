@@ -1,16 +1,18 @@
 #container {
-	width: 704px;
-	height: 704px;
-	border: 1px solid black;
-	/*padding: 1px;*/
+	width: 960px;
+	margin:auto;
+	overflow:auto;
 }
 
 .square {
-	width: 40px;
-	height: 40px;
-	border: 1px solid black;
-	display: inline-block;
-	margin: 1px;
+	width: 58px;
+	height: 58px;
+	float:left;
+	border: 1px solid white;
+	background-color: black;
+}
+.newRow {
+	clear:both;
 }
 
 .hovered {
